@@ -1,7 +1,8 @@
 import Header from '../../components/header/header';
-import PeopleList from '../../components/people-list/people-list';
 import { mockPeople } from '../../mock/people';
 import { AppWrapper } from './style';
+// import LoadingError from '../../components/loading-error/loading-error';
+import PeopleList from '../../components/people-list/people-list';
 
 
 function MainPage(): JSX.Element {
@@ -11,6 +12,7 @@ function MainPage(): JSX.Element {
       <Header />
       <div>
         <PeopleList people={mockPeople}/>
+        {/* <LoadingError /> */}
       </div>
 
     </AppWrapper>
