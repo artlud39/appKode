@@ -6,15 +6,13 @@ import PeopleList from '../../components/people-list/people-list';
 
 
 function MainPage(): JSX.Element {
-
   return (
     <AppWrapper>
-      <Header />
+      <Header/>
       <div>
         <PeopleList people={mockPeople}/>
         {/* <LoadingError /> */}
       </div>
-
     </AppWrapper>
   );
 }

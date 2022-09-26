@@ -5,4 +5,5 @@ export const DepartmentsListStyled = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
+  overflow-x: auto;
 `;

@@ -1,0 +1,135 @@
+.visualy-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(5, 5, 16, 0.16);
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.modal--active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  max-width: 373px;
+  max-height: 192px;
+  width: 100%;
+  height: 100%;
+  padding: 24px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-content__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #050510;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__inner {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  position: relative;
+}
+
+.form__inner input {
+  display: none;
+}
+
+input[type=radio]:checked+label:before,
+input[type=radio]:not(:checked)+label:before {
+  border-radius: 50%;
+}
+
+input[type=radio]:checked+label:before,
+input[type=radio]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6534ff;
+  background-color: #ffffff;
+  transform: translateY(-50%);
+}
+
+input[type=radio]:not(:checked)+label:after {
+  opacity: 0;
+}
+
+input[type=radio]:checked+label:after,
+input[type=radio]:not(:checked)+label:after {
+  left: -1px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 8px solid #6534ff;
+  transform: translateY(-50%);
+}
+
+input[type=radio]:checked+label:after,
+input[type=radio]:not(:checked)+label:after {
+  content: '';
+  position: absolute;
+  transition: all .2s ease;
+}
+
+.form__inner label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #050510;
+  padding-left: 36px;
+}
+
+.form__button-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background-color: #F7F7F8;
+  border-radius: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
