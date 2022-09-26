@@ -117,6 +117,7 @@ input[type=radio]:not(:checked)+label:after {
   line-height: 20px;
   color: #050510;
   padding-left: 36px;
+  cursor: pointer;
 }
 
 .form__button-close {

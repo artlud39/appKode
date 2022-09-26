@@ -5,8 +5,10 @@ import SortModal from '../sort-modal/sort-modal';
 
 
 function SearchInput(): JSX.Element {
+
   const [activeModal, setActiveModal] = useState(false);
   const modalContainer = document.getElementById('modal') as HTMLElement;
+
   return (
     <SearchInputContainer>
       <ContainerSearchIcon>
