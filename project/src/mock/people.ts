@@ -13,7 +13,7 @@ export const mockPeople = [
   {
     id: '2',
     avatarUrl: 'https://api.lorem.space/image/face?w=120&h=120',
-    firstName: 'Jack',
+    firstName: 'Artem',
     lastName: 'Richer',
     userTag: 'jd',
     department: 'android',
@@ -29,18 +29,18 @@ export const mockPeople = [
     userTag: 'jd',
     department: 'android',
     position: 'developer',
-    birthday: '1973-01-24',
+    birthday: '2010-01-24',
     phone: '+79001234567'
   },
   {
     id: '4',
     avatarUrl: 'https://api.lorem.space/image/face?w=120&h=120',
-    firstName: 'John',
+    firstName: 'Ella',
     lastName: 'Doe',
     userTag: 'jd',
     department: 'android',
     position: 'developer',
-    birthday: '1973-01-24',
+    birthday: '1975-01-24',
     phone: '+79001234567'
   },
   {
@@ -51,7 +51,7 @@ export const mockPeople = [
     userTag: 'jd',
     department: 'android',
     position: 'developer',
-    birthday: '2000-01-01',
+    birthday: '2020-01-01',
     phone: '+79001234567'
   },
   {
@@ -62,7 +62,7 @@ export const mockPeople = [
     userTag: 'jd',
     department: 'android',
     position: 'developer',
-    birthday: '1985-11-14',
+    birthday: '2020-01-02',
     phone: '+79001234567'
   }
 ];

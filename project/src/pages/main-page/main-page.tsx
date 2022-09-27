@@ -10,7 +10,7 @@ function MainPage(): JSX.Element {
     <AppWrapper>
       <Header/>
       <div>
-        <PeopleList people={mockPeople}/>
+        <PeopleList data={mockPeople}/>
         {/* <LoadingError /> */}
       </div>
     </AppWrapper>
