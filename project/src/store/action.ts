@@ -4,6 +4,6 @@ export const changeSortTypeAction = createAction('people/activeSortType', (sortT
   payload: sortType
 }));
 
-export const changeFilterTypeAction = createAction('people/activeFilterType', (filterType) => ({
+export const changeDepartamentTypeAction = createAction('people/activeDepartamentType', (filterType) => ({
   payload: filterType
 }));

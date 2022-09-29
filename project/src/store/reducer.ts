@@ -1,10 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { changeSortTypeAction, changeFilterTypeAction } from './action';
+import { Departments } from '../const';
+import { changeSortTypeAction, changeDepartamentTypeAction } from './action';
 
 
 const initialState = {
   activeSort: '',
-  activeFilter: '',
+  departament: Departments.All,
   people: [],
 };
 
@@ -13,8 +14,8 @@ const reducer = createReducer(initialState, (builder) => {
     .addCase(changeSortTypeAction, (state, action) => {
       state.activeSort = action.payload;
     })
-    .addCase(changeFilterTypeAction, (state, action) => {
-      state.activeFilter = action.payload;
+    .addCase(changeDepartamentTypeAction, (state, action) => {
+      state.departament = action.payload;
     });
 });
 

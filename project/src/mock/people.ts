@@ -5,7 +5,7 @@ export const mockPeople = [
     firstName: 'Julia',
     lastName: 'Li',
     userTag: 'jd',
-    department: 'android',
+    department: 'Frontend',
     position: 'developer',
     birthday: '2001-10-12',
     phone: '+79001234567'
@@ -16,7 +16,7 @@ export const mockPeople = [
     firstName: 'Artem',
     lastName: 'Richer',
     userTag: 'jd',
-    department: 'android',
+    department: 'Design',
     position: 'developer',
     birthday: '1981-05-14',
     phone: '+79001234567'
@@ -27,7 +27,7 @@ export const mockPeople = [
     firstName: 'Lena',
     lastName: 'Bistrova',
     userTag: 'jd',
-    department: 'android',
+    department: 'Backend',
     position: 'developer',
     birthday: '2010-01-24',
     phone: '+79001234567'
@@ -38,7 +38,7 @@ export const mockPeople = [
     firstName: 'Ella',
     lastName: 'Doe',
     userTag: 'jd',
-    department: 'android',
+    department: 'Support',
     position: 'developer',
     birthday: '1975-01-24',
     phone: '+79001234567'
@@ -49,7 +49,7 @@ export const mockPeople = [
     firstName: 'Max',
     lastName: 'Pain',
     userTag: 'jd',
-    department: 'android',
+    department: 'Android',
     position: 'developer',
     birthday: '2020-01-01',
     phone: '+79001234567'
@@ -60,7 +60,7 @@ export const mockPeople = [
     firstName: 'John',
     lastName: 'Dorian',
     userTag: 'jd',
-    department: 'android',
+    department: 'Analytics',
     position: 'developer',
     birthday: '2020-01-02',
     phone: '+79001234567'

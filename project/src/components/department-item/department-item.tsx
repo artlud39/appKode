@@ -1,13 +1,20 @@
 import { StyledLink } from './style';
 
 type DepartmentItemProps = {
-  children: string,
+  departament: string,
+  onDepartamentTypeClick: (departament: string) => void;
 };
 
-function DepartmentItem({children}: DepartmentItemProps): JSX.Element {
+function DepartmentItem({departament, onDepartamentTypeClick}: DepartmentItemProps): JSX.Element {
+
+  const handleGenreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onDepartamentTypeClick(departament);
+  };
+
   return (
     <li>
-      <StyledLink href="todo#">{children}</StyledLink>
+      <StyledLink to={`/${departament}`} onClick={handleGenreClick}>{departament}</StyledLink>
     </li>
   );
 }

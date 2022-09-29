@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { SortType } from '../../const';
 import { useAppSelector } from '../../hooks';
 import { PeoplesType } from '../../types/people';
-import { getSortArrayBirthday, getSortArrayAlphabet } from '../../utils/utils';
+import { getFilterPeople, getSortPeopleAlphabet, getSortPeopleBirthday } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
 import { PeopleListStyled } from './style';
 
@@ -14,25 +14,28 @@ function PeopleList({data}: PeopleListProps): JSX.Element {
 
   const sortType = useAppSelector((state) => state.activeSort);
 
-  const [sortPeople, setSortPeople] = useState([...data]);
+  const [people, setPeople] = useState([...data]);
 
   useEffect(() => {
     switch(sortType) {
       case SortType.Alphabet :
-        setSortPeople(() => sortPeople.sort(getSortArrayAlphabet));
+        setPeople(() => people.sort(getSortPeopleAlphabet));
         break;
       case SortType.Birthday :
-        setSortPeople(() => sortPeople.sort(getSortArrayBirthday));
+        setPeople(() => people.sort(getSortPeopleBirthday));
         break;
       default:
-        setSortPeople(sortPeople);
+        setPeople(people);
     }
-  }, [sortPeople, sortType]);
+  }, [people, sortType]);
+
+  const activeDepartament = useAppSelector((state)=> state.departament);
+  const filteredPeople = getFilterPeople(people, activeDepartament);
 
   return (
     <PeopleListStyled>
       {
-        sortPeople.map((element) => (
+        filteredPeople.map((element) => (
           <PeopleItem
             key={element.id}
             element={element}

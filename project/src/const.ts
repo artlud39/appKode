@@ -19,3 +19,4 @@ export enum SortType {
 
 export const BACKEND_URL = 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users';
 export const REQUEST_TIMEOUT = 5000;
+export const DEFAULT_DEPARTAMENT = 'Все';
