@@ -7,7 +7,7 @@ export const mockPeople = [
     userTag: 'jd',
     department: 'android',
     position: 'developer',
-    birthday: '1995-10-12',
+    birthday: '2001-10-12',
     phone: '+79001234567'
   },
   {

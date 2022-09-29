@@ -12,3 +12,10 @@ export enum AppRoute {
   Details = 'details/:id',
   NotFound = '*',
 }
+export enum SortType {
+  Alphabet = 'alphabet',
+  Birthday = 'birthday',
+}
+
+export const BACKEND_URL = 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users';
+export const REQUEST_TIMEOUT = 5000;

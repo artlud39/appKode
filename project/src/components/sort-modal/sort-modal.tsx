@@ -1,3 +1,6 @@
+import { ChangeEvent } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { changeSortTypeAction } from '../../store/action';
 import './sort-modal.css';
 
 
@@ -7,21 +10,27 @@ type SortModalProps = {
 };
 
 function SortModal({active, setActive}: SortModalProps): JSX.Element {
-  const isActive = active;
+
+  const dispatch = useAppDispatch();
+
+  const handleSortTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const acvtiveSortType = event.target.value;
+    dispatch(changeSortTypeAction(acvtiveSortType));
+  };
 
   return (
-    <div className={`modal ${isActive ? 'modal--active' : ''}`} onClick={() => setActive(false)}>
+    <div className={`modal ${active ? 'modal--active' : ''}`} onClick={() => setActive(false)}>
       <div className='modal-content' onClick={(e) => e.stopPropagation()}>
         <div className='modal-content__title-wrapper'>
           <h2 className='modal-content__title'>Сортировка</h2>
         </div>
         <div className='modal-content__form form'>
           <div className='form__inner'>
-            <input type="radio" name='sort' id="sort-alphabet"/>
+            <input onChange={handleSortTypeChange} type="radio" name='sort' id="sort-alphabet" value='alphabet'/>
             <label htmlFor="sort-alphabet">По алфавиту</label>
           </div>
           <div className='form__inner'>
-            <input type="radio" name='sort' id="sort-birthday" />
+            <input onChange={handleSortTypeChange} type="radio" name='sort' id="sort-birthday" value='birthday'/>
             <label htmlFor="sort-birthday">По дню рождения</label>
           </div>
           <button className='form__button-close' type='button' onClick={() => setActive(false)}>

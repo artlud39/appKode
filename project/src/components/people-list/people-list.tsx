@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { SortType } from '../../const';
+import { useAppSelector } from '../../hooks';
 import { PeoplesType } from '../../types/people';
 import { getSortArrayBirthday, getSortArrayAlphabet } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
@@ -10,10 +12,22 @@ type PeopleListProps = {
 
 function PeopleList({data}: PeopleListProps): JSX.Element {
 
+  const sortType = useAppSelector((state) => state.activeSort);
+
   const [sortPeople, setSortPeople] = useState([...data]);
 
-  const sortPeopleAlphabet = [...data].sort(getSortArrayAlphabet);
-  const sortPeopleBirthday = [...data].sort(getSortArrayBirthday);
+  useEffect(() => {
+    switch(sortType) {
+      case SortType.Alphabet :
+        setSortPeople(() => sortPeople.sort(getSortArrayAlphabet));
+        break;
+      case SortType.Birthday :
+        setSortPeople(() => sortPeople.sort(getSortArrayBirthday));
+        break;
+      default:
+        setSortPeople(sortPeople);
+    }
+  }, [sortPeople, sortType]);
 
   return (
     <PeopleListStyled>
