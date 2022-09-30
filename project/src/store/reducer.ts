@@ -1,9 +1,15 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Departments } from '../const';
-import { changeSortTypeAction, changeDepartamentTypeAction } from './action';
+import { PeoplesType } from '../types/people';
+import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction } from './action';
 
+type InitialState = {
+  activeSort: string,
+  departament: string,
+  people: PeoplesType,
+}
 
-const initialState = {
+const initialState : InitialState = {
   activeSort: '',
   departament: Departments.All,
   people: [],
@@ -16,6 +22,9 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(changeDepartamentTypeAction, (state, action) => {
       state.departament = action.payload;
+    })
+    .addCase(loadPeopleAction, (state, action) => {
+      state.people = action.payload;
     });
 });
 

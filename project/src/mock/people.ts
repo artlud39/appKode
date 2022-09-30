@@ -16,9 +16,9 @@ export const mockPeople = [
     firstName: 'Artem',
     lastName: 'Richer',
     userTag: 'jd',
-    department: 'Design',
+    department: 'Frontend',
     position: 'developer',
-    birthday: '1981-05-14',
+    birthday: '2020-05-14',
     phone: '+79001234567'
   },
   {
@@ -27,7 +27,7 @@ export const mockPeople = [
     firstName: 'Lena',
     lastName: 'Bistrova',
     userTag: 'jd',
-    department: 'Backend',
+    department: 'Frontend',
     position: 'developer',
     birthday: '2010-01-24',
     phone: '+79001234567'
@@ -64,5 +64,5 @@ export const mockPeople = [
     position: 'developer',
     birthday: '2020-01-02',
     phone: '+79001234567'
-  }
+  },
 ];
