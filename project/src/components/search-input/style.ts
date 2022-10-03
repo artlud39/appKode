@@ -25,7 +25,7 @@ export const ButtonStyled = styled.button`
   transform: translateY(-50%);
 `;
 
-export const SearchInputStyled = styled.input.attrs(() => ({
+export const SearchInputBar = styled.input.attrs(() => ({
   type: 'search',
   placeholder: 'Введи имя, тег, почту...',
 }))`

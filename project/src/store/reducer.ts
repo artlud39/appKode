@@ -1,18 +1,20 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Departments } from '../const';
 import { PeoplesType } from '../types/people';
-import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction } from './action';
+import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus } from './action';
 
 type InitialState = {
   activeSort: string,
   departament: string,
   people: PeoplesType,
+  isDataLoaded: boolean,
 }
 
 const initialState : InitialState = {
   activeSort: '',
   departament: Departments.All,
   people: [],
+  isDataLoaded: false,
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -25,6 +27,9 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(loadPeopleAction, (state, action) => {
       state.people = action.payload;
+    })
+    .addCase(setDataLoadedStatus, (state, action) => {
+      state.isDataLoaded = action.payload;
     });
 });
 

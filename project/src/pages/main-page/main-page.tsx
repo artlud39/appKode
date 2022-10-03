@@ -1,19 +1,23 @@
 import Header from '../../components/header/header';
-import { mockPeople } from '../../mock/people';
 import { AppWrapper } from './style';
 // import LoadingError from '../../components/loading-error/loading-error';
 import PeopleList from '../../components/people-list/people-list';
 // import NotFoundSearch from '../../components/not-found-search/not-found-search';
-// import { useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
+import Loading from '../../components/loading/loading';
 
 
 function MainPage(): JSX.Element {
-  // const people = useAppSelector((state) => state.people);
+  const people = useAppSelector((state) => state.people);
+  const isPeopleLoaded = useAppSelector((state) => state.isDataLoaded);
+
   return (
     <AppWrapper>
       <Header/>
       <div>
-        <PeopleList data={mockPeople}/>
+        { isPeopleLoaded ?
+          <PeopleList data={people}/>
+          : <Loading />}
         {/* <LoadingError /> */}
         {/* <NotFoundSearch /> */}
       </div>

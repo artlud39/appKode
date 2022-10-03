@@ -1,6 +1,21 @@
 import { DividerLoading, LoadingInner, LoadingWrapper} from './style';
+import { nanoid } from 'nanoid';
 
-function Loading(): JSX.Element {
+function Loading() {
+  const emptyList = [];
+  for (let i = 0; i < 10; i++) {
+    emptyList.push(<LoadingItem key={nanoid()}/>);
+  }
+
+  return (
+    <div>
+      {emptyList}
+    </div>
+  );
+}
+
+function LoadingItem(): JSX.Element {
+
   return (
     <LoadingWrapper>
       <div>

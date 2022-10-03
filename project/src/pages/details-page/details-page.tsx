@@ -1,13 +1,15 @@
 import Details from '../../components/details/deatail';
+import { useAppSelector } from '../../hooks';
 import { DetailsPageStyled } from './style';
-import { mockPeople } from '../../mock/people';
 
 
 function DetailsPage(): JSX.Element {
 
+  const humanActive = useAppSelector((state)=> state.people[1]);
+
   return (
     <DetailsPageStyled>
-      <Details element={mockPeople[1]}/>
+      <Details element={humanActive}/>
     </DetailsPageStyled>
   );
 }

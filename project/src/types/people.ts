@@ -13,3 +13,7 @@ export type PeopleType = {
 export type PeoplesType = PeopleType[];
 
 
+export type DataType = {
+  items: PeoplesType,
+};
+

@@ -1,5 +1,4 @@
-import { useAppDispatch } from '../../hooks';
-import { mockPeople } from '../../mock/people';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { changeDepartamentTypeAction } from '../../store/action';
 import { getDepartaments } from '../../utils/utils';
 import DepartmentItem from '../department-item/department-item';
@@ -7,7 +6,8 @@ import { DepartmentsListStyled } from './style';
 
 
 function DepartmentsList(): JSX.Element {
-  const departments = getDepartaments(mockPeople);
+  const people = useAppSelector((state) => state.people);
+  const departments = getDepartaments(people);
 
   const dispatch = useAppDispatch();
 
