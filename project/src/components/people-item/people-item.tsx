@@ -1,5 +1,5 @@
-import { AppRoute } from '../../const';
 import { PeopleType } from '../../types/people';
+import { getHumanUrl } from '../../utils/utils';
 import { PeopleItemStyled, PeopleItemStyledAvatar, PeopleItemStyledLink, PeopleItemStyledName, PeopleItemStyledUserPosition, PeopleItemStyledUserTag } from './style';
 
 type PeopleItemProps = {
@@ -7,10 +7,10 @@ type PeopleItemProps = {
 };
 
 function PeopleItem({element}: PeopleItemProps): JSX.Element {
-  const { avatarUrl, firstName, lastName, userTag, position } = element;
+  const { id, avatarUrl, firstName, lastName, userTag, position } = element;
   return (
     <PeopleItemStyled>
-      <PeopleItemStyledLink to={AppRoute.Details}>
+      <PeopleItemStyledLink to={getHumanUrl(id)}>
         <div>
           <PeopleItemStyledAvatar src={avatarUrl} alt={`Сотрудник ${firstName} ${lastName}`} />
         </div>

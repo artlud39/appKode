@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { DEFAULT_DEPARTAMENT, Departments } from '../const';
+import { AppRoute, DEFAULT_DEPARTAMENT, Departments } from '../const';
 import { PeopleType, PeoplesType } from '../types/people';
 
 export const humanizePhrone = (phone: string) : string => phone
@@ -32,3 +32,5 @@ export const getFilterPeople = (people: PeoplesType, activeDepartament: string) 
   }
   return people.filter((person) => person.department === activeDepartament);
 };
+
+export const getHumanUrl = (id: string): string => `/${AppRoute.Details.replace(':id', `${id}`)}`;
