@@ -1,15 +1,15 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Departments } from '../const';
 import { PeoplesType } from '../types/people';
-import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus, loadSearchPeopleAction, setAllDepartamentsTypeAction } from './action';
+import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus, setAllDepartamentsTypeAction, setSearchQueryAction } from './action';
 
 type InitialState = {
   activeSort: string,
   departament: string,
   people: PeoplesType,
   isDataLoaded: boolean,
-  searchPeople: PeoplesType,
   departaments: string[],
+  query: string,
 }
 
 const initialState : InitialState = {
@@ -17,8 +17,8 @@ const initialState : InitialState = {
   departament: Departments.All,
   people: [],
   isDataLoaded: false,
-  searchPeople: [],
   departaments: [],
+  query: '',
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -38,8 +38,8 @@ const reducer = createReducer(initialState, (builder) => {
     .addCase(setDataLoadedStatus, (state, action) => {
       state.isDataLoaded = action.payload;
     })
-    .addCase(loadSearchPeopleAction, (state, action) => {
-      state.searchPeople = action.payload;
+    .addCase(setSearchQueryAction, (state, action) => {
+      state.query = action.payload;
     });
 });
 

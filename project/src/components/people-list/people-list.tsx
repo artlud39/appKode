@@ -1,6 +1,6 @@
 import { SortType } from '../../const';
 import { useAppSelector } from '../../hooks';
-import { getFilterPeople, getSortPeopleAlphabet, getSortPeopleBirthday } from '../../utils/utils';
+import { getFilterPeople, getSortCustom, getSortPeopleAlphabet, getSortPeopleBirthday } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
 import { PeopleListStyled } from './style';
 
@@ -9,6 +9,7 @@ function PeopleList(): JSX.Element {
   const sortType = useAppSelector((state) => state.activeSort);
   const activeDepartament = useAppSelector((state)=> state.departament);
   const filteredPeople = getFilterPeople([...people], activeDepartament);
+  const query = useAppSelector((state)=> state.query);
 
   function getSortPeople() {
     switch(sortType) {
@@ -16,25 +17,28 @@ function PeopleList(): JSX.Element {
         return filteredPeople.sort(getSortPeopleAlphabet);
       case SortType.Birthday :
         return filteredPeople.sort(getSortPeopleBirthday);
+      case SortType.Custom :
+        return getSortCustom(filteredPeople, query);
       default:
         return filteredPeople;
     }
   }
-  const peopleads = getSortPeople();
+
+  const sortPeople = getSortPeople();
 
   return (
     <PeopleListStyled>
       {
-        peopleads.map((element) => (
+        sortPeople.map((element) => (
           <PeopleItem
             key={element.id}
             element={element}
           />
         ))
       }
-
     </PeopleListStyled>
   );
 }
 
 export default PeopleList;
+

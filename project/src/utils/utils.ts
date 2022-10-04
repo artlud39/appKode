@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import Fuse from 'fuse.js';
 import { AppRoute, DEFAULT_DEPARTAMENT, Departments } from '../const';
 import { PeopleType, PeoplesType } from '../types/people';
 
@@ -34,3 +35,12 @@ export const getFilterPeople = (people: PeoplesType, activeDepartament: string) 
 };
 
 export const getHumanUrl = (id: string): string => `/${AppRoute.Details.replace(':id', `${id}`)}`;
+
+export const getSortCustom = (sortPeople: PeoplesType, query : string) => {
+  const fuse = new Fuse(sortPeople, {
+    keys: ['firstName','lastName','userTag'],
+  });
+  const results = fuse.search(query);
+  const peopleResults = query ? results.map((result) => result.item) : sortPeople;
+  return peopleResults;
+};

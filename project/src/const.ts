@@ -15,6 +15,7 @@ export enum AppRoute {
 export enum SortType {
   Alphabet = 'alphabet',
   Birthday = 'birthday',
+  Custom = 'custom',
 }
 
 export const BACKEND_URL = 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=all';

@@ -15,4 +15,4 @@ export const setDataLoadedStatus = createAction<boolean>('data/setDataLoadedStat
 
 export const setAllDepartamentsTypeAction = createAction<string[]>('data/setAllDepartaments');
 
-export const loadSearchPeopleAction = createAction<PeoplesType>('data/loadsearchPeople');
+export const setSearchQueryAction = createAction<string>('data/setSearchQuery');
