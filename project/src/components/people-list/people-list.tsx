@@ -1,37 +1,31 @@
-import { useEffect } from 'react';
 import { SortType } from '../../const';
 import { useAppSelector } from '../../hooks';
-import { PeoplesType } from '../../types/people';
 import { getFilterPeople, getSortPeopleAlphabet, getSortPeopleBirthday } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
 import { PeopleListStyled } from './style';
 
-type PeopleListProps = {
-  data: PeoplesType,
-};
-
-function PeopleList({data}: PeopleListProps): JSX.Element {
-
+function PeopleList(): JSX.Element {
+  const people = useAppSelector((state) => state.people);
   const sortType = useAppSelector((state) => state.activeSort);
+  const activeDepartament = useAppSelector((state)=> state.departament);
+  const filteredPeople = getFilterPeople([...people], activeDepartament);
 
-  useEffect(() => {
+  function getSortPeople() {
     switch(sortType) {
       case SortType.Alphabet :
-        data.sort(getSortPeopleAlphabet);
-        break;
+        return filteredPeople.sort(getSortPeopleAlphabet);
       case SortType.Birthday :
-        data.sort(getSortPeopleBirthday);
-        break;
+        return filteredPeople.sort(getSortPeopleBirthday);
+      default:
+        return filteredPeople;
     }
-  }, [data, sortType]);
-
-  const activeDepartament = useAppSelector((state)=> state.departament);
-  const filteredPeople = getFilterPeople(data, activeDepartament);
+  }
+  const peopleads = getSortPeople();
 
   return (
     <PeopleListStyled>
       {
-        filteredPeople.map((element) => (
+        peopleads.map((element) => (
           <PeopleItem
             key={element.id}
             element={element}

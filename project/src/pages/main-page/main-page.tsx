@@ -8,7 +8,7 @@ import Loading from '../../components/loading/loading';
 
 
 function MainPage(): JSX.Element {
-  const people = useAppSelector((state) => state.people);
+
   const isPeopleLoaded = useAppSelector((state) => state.isDataLoaded);
 
   return (
@@ -16,7 +16,7 @@ function MainPage(): JSX.Element {
       <Header/>
       <div>
         { isPeopleLoaded ?
-          <PeopleList data={people}/>
+          <PeopleList />
           : <Loading />}
         {/* <LoadingError /> */}
         {/* <NotFoundSearch /> */}

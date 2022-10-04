@@ -12,3 +12,7 @@ export const changeDepartamentTypeAction = createAction('people/activeDepartamen
 export const loadPeopleAction = createAction<PeoplesType>('data/loadPeople');
 
 export const setDataLoadedStatus = createAction<boolean>('data/setDataLoadedStatus');
+
+export const setAllDepartamentsTypeAction = createAction<string[]>('data/setAllDepartaments');
+
+export const loadSearchPeopleAction = createAction<PeoplesType>('data/loadsearchPeople');

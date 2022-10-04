@@ -12,6 +12,7 @@ function SearchInput(): JSX.Element {
   const modalContainer = document.getElementById('modal') as HTMLElement;
   const dispatch = useAppDispatch();
   const people = useAppSelector((state) => state.people);
+
   const [query, setQuery] = useState('');
 
   const fuse = new Fuse(people, {
@@ -19,15 +20,15 @@ function SearchInput(): JSX.Element {
   });
 
   const results = fuse.search(query);
-  const peopleResults = query ? results.map((result) => result.item) : people;
 
+
+  const peopleResults = query ? results.map((result) => result.item) : people;
 
   function handleOnSearch(event : ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     setQuery(value);
     dispatch(loadPeopleAction(peopleResults));
   }
-
 
   return (
     <SearchInputContainer>
