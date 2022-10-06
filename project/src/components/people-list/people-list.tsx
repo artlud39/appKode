@@ -3,6 +3,7 @@ import { useAppSelector } from '../../hooks';
 import { getFilterPeople, getSortCustom, getSortPeopleAlphabet, getSortPeopleBirthday } from '../../utils/utils';
 import NotFoundSearch from '../not-found-search/not-found-search';
 import PeopleItem from '../people-item/people-item';
+import SortBirthdayScreen from '../sort-birthday-screen/sort-birthday-screen';
 import { PeopleListStyled } from './style';
 
 function PeopleList(): JSX.Element {
@@ -24,19 +25,26 @@ function PeopleList(): JSX.Element {
         return filteredPeople;
     }
   }
-
   const sortPeople = getSortPeople();
+
+  if (sortPeople.length === 0) {
+    return <NotFoundSearch />;
+  }
+
+  if (sortType === SortType.Birthday) {
+    return <SortBirthdayScreen users={sortPeople}/>;
+  }
 
   return (
     <PeopleListStyled>
-      { sortPeople.length !== 0 ?
+      {
         sortPeople.map((element) => (
           <PeopleItem
             key={element.id}
             element={element}
           />
         ))
-        : <NotFoundSearch />}
+      }
     </PeopleListStyled>
   );
 }

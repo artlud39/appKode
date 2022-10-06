@@ -16,3 +16,5 @@ export const setDataLoadedStatus = createAction<boolean>('data/setDataLoadedStat
 export const setAllDepartamentsTypeAction = createAction<string[]>('data/setAllDepartaments');
 
 export const setSearchQueryAction = createAction<string>('data/setSearchQuery');
+
+export const setErrorAction = createAction<number | null>('data/setError');

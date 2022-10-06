@@ -8,6 +8,7 @@ export const humanizePhrone = (phone: string) : string => phone
 
 export const humanizeBirthdayYear = (birthday : string) => dayjs().year() - dayjs(birthday).year();
 export const humanizeBirthdayFull = (birthday : string) => dayjs(birthday).format('D MMMM YYYY');
+export const humanizeBirthdayDayMonth = (birthday : string) => dayjs(birthday).format('D MMM');
 
 export const getSortPeopleAlphabet = (x: PeopleType, y: PeopleType) => {
   const fullNameX = `${x.firstName} ${x.lastName}`;

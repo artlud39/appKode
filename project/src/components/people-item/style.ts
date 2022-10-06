@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const PeopleItemStyled = styled.li`
   display: flex;
   padding-bottom: 6px;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const PeopleItemStyledLink = styled(Link)`
@@ -39,4 +41,11 @@ export const PeopleItemStyledUserPosition = styled.p`
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+`;
+
+export const PeopleItemBirthday = styled.p`
+  color: #55555C;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
 `;

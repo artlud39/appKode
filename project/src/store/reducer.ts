@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Departments } from '../const';
 import { PeoplesType } from '../types/people';
-import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus, setAllDepartamentsTypeAction, setSearchQueryAction } from './action';
+import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus, setAllDepartamentsTypeAction, setSearchQueryAction, setErrorAction } from './action';
 
 type InitialState = {
   activeSort: string,
@@ -10,6 +10,7 @@ type InitialState = {
   isDataLoaded: boolean,
   departaments: string[],
   query: string,
+  error: number | null,
 }
 
 const initialState : InitialState = {
@@ -19,6 +20,7 @@ const initialState : InitialState = {
   isDataLoaded: false,
   departaments: [],
   query: '',
+  error: null,
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -40,6 +42,9 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setSearchQueryAction, (state, action) => {
       state.query = action.payload;
+    })
+    .addCase(setErrorAction, (state, action) => {
+      state.error = action.payload;
     });
 });
 
