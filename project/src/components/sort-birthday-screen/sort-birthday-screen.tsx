@@ -13,7 +13,8 @@ function SortBirthdayScreen({users} : SortBirthdayScreenType): JSX.Element {
 
   users.forEach((element) => {
     const monthBirthday = new Date(element.birthday).getMonth();
-    const dayBirthday = new Date(element.birthday).getDay();
+    const dayBirthday = new Date(element.birthday).getDate();
+
     if (monthBirthday > currentMonth) {
       birthdayThisYear.push(element);
     } else if (monthBirthday === currentMonth) {
@@ -26,6 +27,7 @@ function SortBirthdayScreen({users} : SortBirthdayScreenType): JSX.Element {
       birthdayNextYear.push(element);
     }
   });
+
   return (
     <>
       {
@@ -33,11 +35,7 @@ function SortBirthdayScreen({users} : SortBirthdayScreenType): JSX.Element {
           <PeopleItem key={element.id} element={element}/>
         ))
       }
-      {
-        birthdayThisYear.length !== 0 && birthdayNextYear.length !== 0
-          ? <NextYearBirthday />
-          : ''
-      }
+      <NextYearBirthday />
       {
         birthdayNextYear.map((element) => (
           <PeopleItem key={element.id} element={element}/>

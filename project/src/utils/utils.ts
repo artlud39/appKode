@@ -19,9 +19,10 @@ export const getSortPeopleAlphabet = (x: PeopleType, y: PeopleType) => {
 };
 
 export const getSortPeopleBirthday = (x: PeopleType, y: PeopleType) => {
-  if (Date.parse(x.birthday) < Date.parse(y.birthday)) {return -1;}
-  if (Date.parse(x.birthday) > Date.parse(y.birthday)) {return 1;}
-  return 0;
+  const currentYear = new Date().getFullYear();
+  const dayBirthdayX = dayjs(x.birthday).set('year', currentYear).toDate();
+  const dayBirthdayY = dayjs(y.birthday).set('year', currentYear).toDate();
+  return Number(dayBirthdayX) - Number(dayBirthdayY);
 };
 
 
