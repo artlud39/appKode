@@ -46,3 +46,4 @@ export const getSortCustom = (sortPeople: PeoplesType, query : string) => {
   const peopleResults = query ? results.map((result) => result.item) : sortPeople;
   return peopleResults;
 };
+

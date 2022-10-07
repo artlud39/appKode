@@ -1,22 +1,34 @@
 import ReactDOM from 'react-dom';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { SearchInputBar, ButtonStyled, SearchInputContainer, ContainerSearchIcon } from './style';
 import SortModal from '../sort-modal/sort-modal';
 import { useAppDispatch } from '../../hooks';
 import { setSearchQueryAction, changeSortTypeAction } from '../../store/action';
 import { SortType } from '../../const';
+import useDebounce from '../../hooks/debounce';
 
 
 function SearchInput(): JSX.Element {
   const [activeModal, setActiveModal] = useState(false);
+  const [value, setValue] = useState('');
   const modalContainer = document.getElementById('modal') as HTMLElement;
   const dispatch = useAppDispatch();
 
+  const debouncedValue = useDebounce(value, 300);
+
   function handleOnSearch(event : ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    dispatch(setSearchQueryAction(value));
-    dispatch(changeSortTypeAction(SortType.Custom));
+    setValue(event.target.value);
   }
+
+  useEffect(
+    () => {
+      if (debouncedValue) {
+        dispatch(setSearchQueryAction(value));
+        dispatch(changeSortTypeAction(SortType.Custom));
+      }
+    },
+    [debouncedValue, dispatch, value]
+  );
 
   return (
     <SearchInputContainer>
