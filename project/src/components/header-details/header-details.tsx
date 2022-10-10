@@ -14,7 +14,9 @@ function HeaderDetails({element}: DetailsProps): JSX.Element {
   return (
     <HeaderDetailsStyled>
       <HeaderDetailsLinkContainer>
-        <HeaderDetailsLink to={AppRoute.Main}>Назад</HeaderDetailsLink>
+        <HeaderDetailsLink to={AppRoute.Main}>
+          <span className='visually-hidden'>Назад</span>
+        </HeaderDetailsLink>
       </HeaderDetailsLinkContainer>
       <HeaderDetailsWrapper>
         <div>

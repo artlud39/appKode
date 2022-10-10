@@ -6,4 +6,5 @@ export const DepartmentsListStyled = styled.ul`
   padding: 0;
   display: flex;
   overflow-x: auto;
+  min-height: 38px;
 `;

@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Color } from '../../types/style';
 
-export const StyledLink = styled(Link)`
+interface LinkProps {
+  borderсolor: Color.HanPurple | Color.Transparent;
+  color: Color.Ghost | Color.HanPurple;
+}
+
+export const StyledLink = styled(Link)<LinkProps>`
   display: flex;
   text-decoration: none;
   color: #97979B;
@@ -10,9 +16,10 @@ export const StyledLink = styled(Link)`
   line-height: 20px;
   padding: 8px 12px;
   border-bottom: 2px solid transparent;
-  :hover {
-    border-bottom: 2px solid #6534FF;
+  border-color: ${({borderсolor = Color.Transparent}) => borderсolor};
+
+  :hover,
+  :focus {
     color: #050510;
   }
 `;
-

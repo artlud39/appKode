@@ -19,7 +19,7 @@ function InfoDetails({element}: DetailsProps): JSX.Element {
     <InfoDetailsStyled>
       <InfoDetailsTextContainer backgroundImage={'/img/star-icon.svg'} height={20} width={20}>
         <InfoDetailsText> {birthdayFull}</InfoDetailsText>
-        <InfoDetailsText color={Color.SantasGrey}> {birthdayYear} года</InfoDetailsText>
+        <InfoDetailsText color={Color.SantasGrey}> {birthdayYear} years</InfoDetailsText>
       </InfoDetailsTextContainer>
       <InfoDetailsTextContainer backgroundImage={'/img/phone-icon.svg'} height={20} width={21}>
         <PrhoneNumberLink href={`tel:${phone}`}>{adaptivePhone}</PrhoneNumberLink>

@@ -9,6 +9,7 @@ export const LoadingWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+  padding-top: 16px;
 `;
 
 export const LoadingInner = styled.div`

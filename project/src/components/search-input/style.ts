@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { Color } from '../../types/style';
+
+interface IconProps {
+  fill: Color.Ghost | Color.HanPurple;
+}
 
 export const SearchInputContainer = styled.div`
   display: flex;
@@ -14,7 +19,7 @@ export const ContainerSearchIcon = styled.div`
   z-index: 10;
 `;
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<IconProps>`
   display: block;
   position: absolute;
   right: 12px;
@@ -23,6 +28,11 @@ export const ButtonStyled = styled.button`
   background-color: transparent;
   cursor: pointer;
   transform: translateY(-50%);
+  color: red;
+
+  & svg path {
+    fill: ${(props) => props.fill};
+  }
 `;
 
 export const SearchInputBar = styled.input.attrs(() => ({
@@ -45,5 +55,3 @@ export const SearchInputBar = styled.input.attrs(() => ({
     font-weight: 500;
   }
 `;
-
-

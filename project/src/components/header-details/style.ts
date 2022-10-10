@@ -24,6 +24,21 @@ export const HeaderDetailsLink = styled(Link)`
   align-items: center;
   gap: 16px;
   text-decoration: none;
+  padding: 15px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 12px;
+    background-image: url("/img/arrow-back.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translate(-50%,-50%);
+  }
 `;
 
 export const HeaderDetailsAvatar = styled.img`

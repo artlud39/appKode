@@ -7,6 +7,7 @@ import { DepartmentsListStyled } from './style';
 function DepartmentsList(): JSX.Element {
   const departaments = useAppSelector((state) => state.departaments);
   const dispatch = useAppDispatch();
+  const activeDepartament = useAppSelector((state) => state.departament);
 
   const handleChangeDepartament = (filterType: string): void => {
     dispatch(changeDepartamentTypeAction(filterType));
@@ -19,6 +20,7 @@ function DepartmentsList(): JSX.Element {
           <DepartmentItem
             key={element}
             departament={element}
+            activeDepartament={activeDepartament}
             onDepartamentTypeClick={handleChangeDepartament}
           />
         ))
