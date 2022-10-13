@@ -1,7 +1,7 @@
-import { HeaderStyled } from './style';
 import Title from '../title/title';
 import SearchInput from '../search-input/search-input';
 import DepartmentsList from '../departments-list/departments-list';
+import { HeaderStyled } from './style';
 
 function Header(): JSX.Element {
 

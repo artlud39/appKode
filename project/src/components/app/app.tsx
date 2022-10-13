@@ -1,9 +1,9 @@
-import { GlobalStyle } from './style';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppRoute } from '../../const';
 import MainPage from '../../pages/main-page/main-page';
 import DetailsPage from '../../pages/details-page/details-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
+import { GlobalStyle } from './style';
+import { AppRoute } from '../../const';
 
 function App(): JSX.Element {
 
@@ -31,4 +31,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-

@@ -1,12 +1,11 @@
-import { PeopleType } from '../../types/people';
-import { Color } from '../../types/style';
 import { humanizeBirthdayYear, humanizePhrone, humanizeBirthdayFull } from '../../utils/utils';
 import { InfoDetailsStyled, PrhoneNumberLink, InfoDetailsText, InfoDetailsTextContainer } from './style';
+import { PeopleType } from '../../types/people';
+import { Color } from '../../types/style';
 
 type DetailsProps = {
   element: PeopleType,
 };
-
 
 function InfoDetails({element}: DetailsProps): JSX.Element {
 

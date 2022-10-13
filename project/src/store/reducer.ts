@@ -1,7 +1,15 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Departments } from '../const';
+import {
+  changeSortTypeAction,
+  changeDepartamentTypeAction,
+  loadPeopleAction,
+  setDataLoadedStatus,
+  setAllDepartamentsTypeAction,
+  setSearchQueryAction,
+  setErrorAction
+} from './action';
 import { PeoplesType } from '../types/people';
-import { changeSortTypeAction, changeDepartamentTypeAction, loadPeopleAction, setDataLoadedStatus, setAllDepartamentsTypeAction, setSearchQueryAction, setErrorAction } from './action';
+import { Departments } from '../const';
 
 type InitialState = {
   activeSort: string,

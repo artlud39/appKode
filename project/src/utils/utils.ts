@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import Fuse from 'fuse.js';
-import { AppRoute, DEFAULT_DEPARTAMENT, Departments } from '../const';
 import { PeopleType, PeoplesType } from '../types/people';
+import { AppRoute, DEFAULT_DEPARTAMENT, Departments } from '../const';
 
 export const humanizePhrone = (phone: string) : string => phone
   .replace(/(\+7|8)[\s(]?(\d{3})[\s)]?(\d{3})[\s-]?(\d{2})[\s-]?(\d{2})/g, '$1 ($2) $3 $4 $5');
@@ -25,7 +25,6 @@ export const getSortPeopleBirthday = (x: PeopleType, y: PeopleType) => {
   return Number(dayBirthdayX) - Number(dayBirthdayY);
 };
 
-
 export const getDepartaments = (people: PeoplesType): string[] =>
   [Departments.All, ...new Set(people.map((person) => person.department))];
 
@@ -46,4 +45,3 @@ export const getSortCustom = (sortPeople: PeoplesType, query : string) => {
   const peopleResults = query ? results.map((result) => result.item) : sortPeople;
   return peopleResults;
 };
-

@@ -1,12 +1,11 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
-import { BACKEND_URL, REQUEST_TIMEOUT } from '../const';
 import { store } from '../store';
 import { setErrorAction } from '../store/action';
+import { BACKEND_URL } from '../const';
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
     baseURL: BACKEND_URL,
-    timeout: REQUEST_TIMEOUT,
   });
 
   api.interceptors.response.use(

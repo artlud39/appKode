@@ -1,11 +1,10 @@
-import { AppRoute } from '../../const';
-import { PeopleType } from '../../types/people';
 import { HeaderDetailsStyled, HeaderDetailsLink, HeaderDetailsAvatar, HeaderDetailsLinkContainer , HeaderDetailsName, HeaderDetailsUserTag, HeaderDetailsUserPosition, HeaderDetailsContainer, HeaderDetailsWrapper } from './style';
+import { PeopleType } from '../../types/people';
+import { AppRoute } from '../../const';
 
 type DetailsProps = {
   element: PeopleType,
 };
-
 
 function HeaderDetails({element}: DetailsProps): JSX.Element {
 

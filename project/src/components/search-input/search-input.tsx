@@ -4,17 +4,19 @@ import { SearchInputBar, ButtonStyled, SearchInputContainer, ContainerSearchIcon
 import SortModal from '../sort-modal/sort-modal';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setSearchQueryAction, changeSortTypeAction } from '../../store/action';
-import { SortType } from '../../const';
+import { getAcvtiveSort } from '../../store/select';
 import useDebounce from '../../hooks/debounce';
+import { SortType } from '../../const';
 import { Color } from '../../types/style';
-
 
 function SearchInput(): JSX.Element {
   const [activeModal, setActiveModal] = useState(false);
   const [value, setValue] = useState('');
+
   const modalContainer = document.getElementById('modal') as HTMLElement;
   const dispatch = useAppDispatch();
-  const activeSort = useAppSelector((state)=> state.activeSort);
+
+  const activeSort = useAppSelector(getAcvtiveSort);
   const debouncedValue = useDebounce(value, 300);
 
   function handleOnSearch(event : ChangeEvent<HTMLInputElement>) {

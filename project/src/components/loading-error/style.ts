@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Divider } from '../style-components/style';
 
-
 export const LoadingErrorStyled = styled.div`
   display: flex;
   flex-direction: column;

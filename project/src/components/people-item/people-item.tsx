@@ -1,5 +1,6 @@
 import { SortType } from '../../const';
 import { useAppSelector } from '../../hooks';
+import { getAcvtiveSort } from '../../store/select';
 import { PeopleType } from '../../types/people';
 import { getHumanUrl, humanizeBirthdayDayMonth } from '../../utils/utils';
 import { PeopleItemBirthday, PeopleItemStyled, PeopleItemStyledAvatar, PeopleItemStyledLink, PeopleItemStyledName, PeopleItemStyledUserPosition, PeopleItemStyledUserTag } from './style';
@@ -10,7 +11,8 @@ type PeopleItemProps = {
 
 function PeopleItem({element}: PeopleItemProps): JSX.Element {
   const { id, avatarUrl, firstName, lastName, userTag, position, birthday } = element;
-  const sortType = useAppSelector((state) => state.activeSort);
+  const sortType = useAppSelector(getAcvtiveSort);
+
   return (
     <PeopleItemStyled>
       <PeopleItemStyledLink to={getHumanUrl(id)}>

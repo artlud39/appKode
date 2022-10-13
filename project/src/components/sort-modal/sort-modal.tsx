@@ -1,9 +1,9 @@
 import { ChangeEvent } from 'react';
-import { SortType } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { changeSortTypeAction } from '../../store/action';
+import { getAcvtiveSort } from '../../store/select';
+import { SortType } from '../../const';
 import './sort-modal.css';
-
 
 type SortModalProps = {
   active: boolean,
@@ -13,7 +13,7 @@ type SortModalProps = {
 function SortModal({active, setActive}: SortModalProps): JSX.Element {
 
   const dispatch = useAppDispatch();
-  const acvtiveSort = useAppSelector((state) => state.activeSort);
+  const acvtiveSort = useAppSelector(getAcvtiveSort);
 
   const handleSortTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
     const acvtiveSortType = event.target.value;

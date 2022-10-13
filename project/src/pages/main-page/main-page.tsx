@@ -1,15 +1,16 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../components/header/header';
-import { AppWrapper } from './style';
 import PeopleList from '../../components/people-list/people-list';
-import { useAppSelector } from '../../hooks';
 import Loading from '../../components/loading/loading';
 import LoadingError from '../../components/loading-error/loading-error';
+import { useAppSelector } from '../../hooks';
+import { selectError, selectLoaded } from '../../store/select';
+import { AppWrapper } from './style';
 
 function MainPage(): JSX.Element {
 
-  const isPeopleLoaded = useAppSelector((state) => state.isDataLoaded);
-  const isPeopleError = useAppSelector((state) => state.error);
+  const isPeopleLoaded = useAppSelector(selectLoaded);
+  const isPeopleError = useAppSelector(selectError);
 
   return (
     <AppWrapper>

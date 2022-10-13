@@ -1,6 +1,6 @@
-import { PeoplesType } from '../../types/people';
 import NextYearBirthday from '../next-year-birthday/next-year-birthday';
 import PeopleItem from '../people-item/people-item';
+import { PeoplesType } from '../../types/people';
 
 type SortBirthdayScreenType = {
   users: PeoplesType
