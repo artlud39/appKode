@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://artlud39.github.io/appKode/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
     "@types/styled-components": "^5.1.26",
