@@ -8,7 +8,7 @@ export enum Departments {
 }
 
 export enum AppRoute {
-  Main = '/',
+  Main = '/appKode',
   Details = 'details/:id',
   NotFound = '*',
 }
